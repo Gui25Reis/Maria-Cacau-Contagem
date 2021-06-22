@@ -1,5 +1,17 @@
 # Planilha com dados (usada para teste)
-testes/
+arquivos/zTestes/
+
+# Configuração do VSCode
+*.vscode/
+
+# Arquivos da Interface Gráfica
+arquivos/gui
+
+
+# Outros
+*.psd
+
+
 
 ### Arquivos Python ###
 

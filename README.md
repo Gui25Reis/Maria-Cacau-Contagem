@@ -11,5 +11,9 @@ v1.1
 - Menu interação com usuário pelo terminal
 - Organização do código
 
+v1.2
+- Adição de uma nova funcionalidade no menu: Melhor envio
+- Organização do código
+
 ## OBS:
 Arquivos gerados pré-determinados

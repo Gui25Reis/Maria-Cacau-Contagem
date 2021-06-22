@@ -7,10 +7,11 @@ arquivos/zTestes/
 # Arquivos da Interface Gráfica
 arquivos/gui
 
-
 # Outros
 *.psd
 
+# Executável:
+*.exe
 
 
 ### Arquivos Python ###

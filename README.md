@@ -15,5 +15,14 @@ v1.2
 - Adição de uma nova funcionalidade no menu: Melhor envio
 - Organização do código
 
+v2.0
+- Nova funcionalidade: Resumo dos produtos
+- Remoção das gerações das imagens de entrega
+- Documentação interna no código
+- Otimização do código
+- Melhoria no Menu de interação
+
+
 ## OBS:
-Arquivos gerados pré-determinados
+- Arquivo da planílha precisa estar na mesma pasta que o programa
+- Arquivos `.txt` são gerados automaticamente

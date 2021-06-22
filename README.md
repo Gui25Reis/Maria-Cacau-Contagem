@@ -2,9 +2,14 @@
 Programa desenvolvido para a empresa Maria Cacau
 
 ## Features
+v1.0
 - Imagens com as informações entregas para motoboy
 - Resumos das entregas do dia escolhido
 - Simplificação dos dados da nota fiscal
 
+v1.1
+- Menu interação com usuário pelo terminal
+- Organização do código
+
 ## OBS:
-Para colocar a data escolhida precisa colocar direto pelo código e depois rodar
+Arquivos gerados pré-determinados

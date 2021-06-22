@@ -1,17 +1,22 @@
-import matplotlib.pyplot as plt, pandas as pd
+import matplotlib.pyplot as plt, pandas as pd, time as tm
+
+# 'G:/Users/guui_/Desktop/GuiTestes/Pastas/Maria Cacau/Arquivos/Arq MC.xlsx'
+local_arq = 'G:/OneDrive/Gui/GuiTestes/Python/Maria Cacau/Arquivos/Arq MC.xlsx' 
+arq = pd.read_excel(local_arq, decimal='.')
+
+# 'G:/Users/guui_/Desktop/GuiTestes/Pastas/Maria Cacau/Arquivos/Resumo pedidos.txt'
+local_txt = 'G:/OneDrive/Gui/GuiTestes/Python/Maria Cacau/Arquivos/Resumo pedidos.txt'#'Arquivos/Resumo pedidos.txt'
+arq_peds = open(local_txt,'w')
+
 from openpyxl import *
-
-
-local = 'C:/Users/guui_/Desktop/GuiTestes/Pastas/Maria Cacau/Arquivos/Arq MC.xlsx'
-arq = pd.read_excel(local, decimal='.')
-
-arq_2 = load_workbook(local)
+arq_2 = load_workbook(local_arq)
 plan = arq_2['Nota - SAGE']
 
 
 def salv_foto(dia_, num_):
     plt.rc('savefig',pad_inches=0.5,bbox='tight')
-    plt.savefig('C:/Users/guui_/Desktop/GuiTestes/Pastas/Maria Cacau/Arquivos/Fotos/Moto {} P{}.png' .format(dia_, num_))
+    # 'C:/Users/guui_/Desktop/GuiTestes/Pastas/Maria Cacau/Arquivos/Fotos/Moto {} P{}.png'
+    plt.savefig('G:/OneDrive/Gui/GuiTestes/Python/Maria Cacau/Arquivos/Fotos/Moto {} P{}.png' .format(dia_, num_))
 
 
 def pedidos(dia_):
@@ -34,7 +39,7 @@ def pedidos(dia_):
             dev += '\n' + '{} -> {} | {} | {} | $: {} \n' .format(
             filt[cols[0]][x], filt[cols[4]][x], filt[cols[3]][x], filt[cols[-3]][x], filt[cols[1]][x])
 
-    print('''Para o dia {} temos: {} pedidos \n{} \n\nFalta(m) pagar: \n{}''' .format(dia[:5], sum(quant), entregas, dev) )
+    return '''Para o dia {} temos: {} pedidos \n{} \n\nFalta(m) pagar: \n{}''' .format(dia[:5], sum(quant), entregas, dev)
 
 
 def endereco (dia_):
@@ -134,15 +139,27 @@ def nota_SAGE (dia_):
         if filt.iloc[col][1] in modal_nota:
             for lin in range(len(colunas)-1):
                 if lin == 7:
-                    plan.cell(row=lin+1, column=num_coluna, value=str(compl[col])) #
+                    plan.cell(row=lin+1, column=num_coluna, value=str(compl[col]))
                 elif lin == 11:
-                    plan.cell(row=lin+1, column=num_coluna, value=str(fret[col])) #
+                    plan.cell(row=lin+1, column=num_coluna, value=str(fret[col]))
                 elif lin == 12:
-                    plan.cell(row=lin+1, column=num_coluna, value=str(total[col])) #
+                    plan.cell(row=lin+1, column=num_coluna, value=str(total[col]))
                 elif lin not in [10,14] and lin not in [7,11,12]:
-                    plan.cell(row=lin+1, column=num_coluna, value=str(filt[colunas[lin]] [col])) #
+                    plan.cell(row=lin+1, column=num_coluna, value=str(filt[colunas[lin]] [col]))
             num_coluna += 3         
 
+
+def funcs(dia_):
+    arq_peds.write(pedidos(dia_))
+    endereco(dia_)
+    endereco(dia_)
+    nota_SAGE(dia_)
+
+    arq_2.save(local_arq)
+    arq_2.close()
+    arq_peds.close()
+
+    print('\nPronto!!')
 
 arq_cols = list(arq.columns)
 
@@ -158,15 +175,30 @@ cols_plan = ['PEDIDO','Entrega','Nome','CPF','EMAIL','CEP','Rua','Compl.','Bairr
 'Frete','Total','Belga?','','TEL','Loc Tel','Evento']
 
 
-dia = '17/12/2019'
 
-y = dia.split('/')[::-1]
-dia_form = '{}-{}-{}' .format(y[0],y[1],y[2])
+ops = input('''\n\t\t|\/| /\ /? | /\   ( /\ ( /\ |_| 
+\n01 -> Nota Fiscal \n\nOps: ''')
+
+while ops not in ['1']:
+    ops = input('Dado inválido. \n\nEscolha uma opção: ')
+
+if ops == '1':
+    print('\nDigite a data - dd/mm/aaaa')
+
+    dia = input('\nData: ')
+    while len(dia) != 10:
+        print('Entrada inválida. Digite a data como dd/mm/aaaa')
+        dia = input('\nDia: ')
+
+    y = dia.split('/')[::-1]
+    dia_form = '{}-{}-{}' .format(y[0],y[1],y[2])
+
+    funcs(dia_form)
 
 
-pedidos(dia_form)
-endereco(dia_form)
-nota_SAGE(dia_form)
 
-arq_2.save(local)
-arq_2.close()
+print('O programa vai fechar em ', end = '')
+for x in range (3,0,-1):
+    print(end = '{}.. ' .format(x))
+    tm.sleep(1)
+print(' ', end = '\r')

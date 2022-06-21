@@ -8,9 +8,9 @@
 [![Capa do GitHub](https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/Git-Capa.png)](#empresa)
 
 Programa que faz uma análise da planílha (usada como banco de dados) filtrando os dados para saber: 
-- Quais produtos vão ser feitos durante um intervalo de dataa
-- Os tipos de entregas de uma data
-- Dados para nota fiscal
+- Quais produtos vão ser feitos durante um intervalo de datas;
+- As entregas que terão em uma data específica;
+- Os dados necessários para a nota fiscal;
 
 </br>
 
@@ -21,7 +21,7 @@ Programa que faz uma análise da planílha (usada como banco de dados) filtrando
 5. [Demonstração](#demonstração)
 6. [Licença](#licença)
 7. [Autores](#autores)
-7. [Empresa](#empresa)
+8. [Empresa](#empresa)
 
 ## Download
 A versão mais recente (3.0) está disponível para download nesse [link](https://github.com/Gui25Reis/Maria-Cacau-Contagem/releases/download/3.0.0/MC.-.Analise.exe). O histórico de versões está [aqui](https://github.com/Gui25Reis/Maria-Cacau-Contagem/wiki/Releases).
@@ -40,11 +40,11 @@ Documentação está na [wiki](https://github.com/Gui25Reis/Maria-Cacau-Contagem
 
 ## Demonstração
 <p align="center">
-    <img width=95% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-01.png"/>
+    <img width=97% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-01.png"/>
 </p>
 <br><br>
 <p align="center">
-    <img width=95% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-04.png"/>    
+    <img width=97% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-04.png"/>    
 </p>
 
 

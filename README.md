@@ -5,10 +5,7 @@
 [![Python version](https://img.shields.io/badge/python-v3.5+-blue?logo=python)](https://swift.org/download/#releases)
 [![License](https://img.shields.io/badge/licença-MIT-brightgreen?)](https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/main/LICENSE)
 
-<a href="https://github.com/Gui25Reis/Maria-Cacau-Contagem/releases/download/3.0.0/MC.-.Analise.exe">
-    <img src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/Git-Capa.png" 
-    alt="Capa do GitHub"/><br>
-</a>
+[![Capa do GitHub](https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/Git-Capa.png)](#empresa)
 
 Programa que faz uma análise da planílha (usada como banco de dados) filtrando os dados para saber: 
 - Quais produtos vão ser feitos durante um intervalo de dataa
@@ -41,23 +38,13 @@ O programa foi feito em ```python 3.8.5``` com a adição de uma biblioteca exte
 ## Documentação
 Documentação está na [wiki](https://github.com/Gui25Reis/Maria-Cacau-Contagem/wiki) do projeto.
 
-
 ## Demonstração
 <p align="center">
-    <img width=48% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-01.png"/>
-    &nbsp;&nbsp;
-    <img width=48% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-04.png"/>    
-</p>
-
-<br><br><br><br><br><br><br><br><br><br><br>
-
-## Demonstração
-<p align="center">
-    <img width=80% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-01.png"/>
+    <img width=90% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-01.png"/>
 </p>
 <br>
 <p align="center">
-    <img width=80% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-04.png"/>    
+    <img width=90% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-04.png"/>    
 </p>
 
 

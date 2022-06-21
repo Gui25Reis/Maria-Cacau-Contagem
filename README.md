@@ -40,11 +40,11 @@ Documentação está na [wiki](https://github.com/Gui25Reis/Maria-Cacau-Contagem
 
 ## Demonstração
 <p align="center">
-    <img width=90% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-01.png"/>
+    <img width=95% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-01.png"/>
 </p>
-<br>
+<br><br>
 <p align="center">
-    <img width=90% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-04.png"/>    
+    <img width=95% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-04.png"/>    
 </p>
 
 
@@ -77,7 +77,7 @@ Esse projeto é licenciado pela [MIT License](https://github.com/Gui25Reis/Maria
     </tr>
     <tr>
         <td align="center">
-            <a href="https://github.com/Gui25Reis/Mudanca-de-base">site</a>
+            <a href="https://www.mariacacau.com.br/">site</a>
         </td>
         <td>
             <a href="https://www.instagram.com/mariacacau_oficial/">insta</a>

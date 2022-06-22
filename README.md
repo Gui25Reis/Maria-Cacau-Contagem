@@ -47,15 +47,6 @@ Documentação está na [wiki](https://github.com/Gui25Reis/Maria-Cacau-Contagem
     <img width=97% src="https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/feat/readme/arquivos/imagens/telas/Tela-04.png"/>    
 </p>
 
-<br><br><br><br><br><br>
-<p align="center">
-    <img width=97% src="https://user-images.githubusercontent.com/48360732/174955792-9fb8417f-1d42-406f-95d1-0f98183bfc1e.png"/>
-</p>
-<br><br>
-<p align="center">
-    <img width=97% src="https://user-images.githubusercontent.com/48360732/174955807-83ff9076-43d5-4c5d-b078-a5471d48b27d.png"/>    
-</p>
-
 ## Licença
 Esse projeto é licenciado pela [MIT License](https://github.com/Gui25Reis/Maria-Cacau-Contagem/blob/main/LICENSE).
 

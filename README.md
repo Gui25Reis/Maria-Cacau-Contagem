@@ -61,6 +61,7 @@ python -m maria_cacau
 > [!NOTE]
 > É necessário rodar o `build` antes para instalar as dependências e ter o venv configurado.
 > O executável gerado acaba ficando na pasta dist/.
+> Lembra de ajustar a versão em [pyproject.toml](pyproject.toml)
 
 | OS | Comando |
 |---|---|

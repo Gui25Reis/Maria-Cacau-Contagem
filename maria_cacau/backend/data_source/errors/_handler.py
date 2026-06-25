@@ -1,22 +1,17 @@
 import functools
 import json
 from contextlib import contextmanager
-from datetime import datetime
 
 import google.auth.exceptions
 import gspread
 import requests
 
-from .._utils import normalize_date
+from .._utils import normalize_date, to_datetime
 from ._errors import *
 
 
 def _is_valid_date(value: str) -> bool:
     return normalize_date(value) is not None
-
-
-def _parse_date(value: str) -> datetime:
-    return datetime.strptime(normalize_date(value), "%d/%m/%Y")
 
 
 class _SheetsGuard:
@@ -65,7 +60,7 @@ class _SheetsGuard:
             raise InvalidDateFormatError(value=value)
 
     def validate_date_range(self, start: str, end: str) -> None:
-        if _parse_date(end) < _parse_date(start):
+        if to_datetime(normalize_date(end)) < to_datetime(normalize_date(start)):
             raise InvalidDateRangeError(start=start, end=end)
 
 

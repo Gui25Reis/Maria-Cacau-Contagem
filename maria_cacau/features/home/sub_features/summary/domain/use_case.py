@@ -24,7 +24,7 @@ class SummaryUseCase:
         global_totals: dict[str, int] = defaultdict(int)
         days: list[DaySummary] = []
 
-        for date in sorted(by_day):
+        for date in by_day:
             day_orders = by_day[date]
             day_totals: dict[str, int] = defaultdict(int)
 

@@ -1,12 +1,27 @@
 import re
 from datetime import datetime, timedelta
+from enum import Enum
+
+
+class DateFormat(str, Enum):
+    BR_SHORT = "%d/%m/%y"
+    BR_FULL  = "%d/%m/%Y"
+
+
+def to_datetime(value: str) -> datetime:
+    for fmt in (DateFormat.BR_FULL, DateFormat.BR_SHORT):
+        try:
+            return datetime.strptime(value, fmt)
+        except ValueError:
+            continue
+    raise ValueError(f"time data '{value}' does not match any known date format")
 
 
 def normalize_date(val: str) -> str | None:
     """Normaliza uma data para DD/MM/YYYY aceitando os formatos DD/MM/YY e DD/MM/YYYY. Retorna None se inválida."""
-    for fmt in ("%d/%m/%y", "%d/%m/%Y"):
+    for fmt in (DateFormat.BR_SHORT, DateFormat.BR_FULL):
         try:
-            return datetime.strptime(val.strip(), fmt).strftime("%d/%m/%Y")
+            return datetime.strptime(val.strip(), fmt).strftime(DateFormat.BR_FULL)
         except ValueError:
             continue
     return None
@@ -33,10 +48,10 @@ def to_ranges(row_numbers: list[int]) -> list[list[str]]:
 
 def date_range(start: str, end: str) -> set[str]:
     """Retorna o conjunto de todas as datas (DD/MM/YYYY) entre start e end, inclusive."""
-    d_start = datetime.strptime(start, "%d/%m/%Y")
-    d_end   = datetime.strptime(end,   "%d/%m/%Y")
+    d_start = to_datetime(start)
+    d_end   = to_datetime(end)
     dates, current = set(), d_start
     while current <= d_end:
-        dates.add(current.strftime("%d/%m/%Y"))
+        dates.add(current.strftime(DateFormat.BR_FULL))
         current += timedelta(days=1)
     return dates

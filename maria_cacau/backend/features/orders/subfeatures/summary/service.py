@@ -2,6 +2,7 @@
 
 import dataclasses
 
+from .....utils import to_datetime
 from ...shared import Order, OrderMapper
 from .repository import OrdersSummaryRepository
 
@@ -28,4 +29,6 @@ class OrdersService:
         df = self._repo.get_by_period(start, end)
         if df.empty:
             return []
-        return [OrderMapper.to_model(row) for _, row in df.iterrows()]
+        orders = [OrderMapper.to_model(row) for _, row in df.iterrows()]
+        orders.sort(key=lambda o: to_datetime(o.delivery.date))
+        return orders

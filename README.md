@@ -1,6 +1,6 @@
 # Maria Cacau — App
 
-[![Version](https://img.shields.io/badge/version-4.0-orange)](https://github.com/Maria-Cacau/Maria-Cacau-App/releases/tag/4.0.0)
+[![Version](https://img.shields.io/badge/version-5.0.1-orange)](https://github.com/Maria-Cacau/Maria-Cacau-App/releases/tag/5.0.1)
 ![Language](https://img.shields.io/badge/language-Python-blue?logo=python)
 [![Python Version](https://img.shields.io/badge/python-v3.13+-blue?logo=python)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-brightgreen?logo=creativecommons)](./LICENSE)
@@ -61,6 +61,7 @@ python -m maria_cacau
 > [!NOTE]
 > É necessário rodar o `build` antes para instalar as dependências e ter o venv configurado.
 > O executável gerado acaba ficando na pasta dist/.
+> Lembra de ajustar a versão em [pyproject.toml](pyproject.toml)
 
 | OS | Comando |
 |---|---|

@@ -58,6 +58,6 @@ Na primeira vez, o app precisa do `.json` da Service Account para autenticar.
 1. Menu **Segurança → Configurar certificado** → selecionar o `.json` da Service Account
 2. Menu **Arquivo → Conectar nova planilha** → colar o link ou ID da planilha
 
-As credenciais são salvas no keychain do SO via `keyring`. Nas próximas execuções, o app autentica automaticamente e as planilhas já conectadas aparecem em **Arquivo → Planilhas conectadas**.
+As credenciais são salvas via `SecurityStorage` (`~/.mariacacau/`, arquivo protegido por permissões — não é mais `keyring`/keychain do SO). Nas próximas execuções, o app autentica automaticamente e as planilhas já conectadas aparecem em **Arquivo → Planilhas conectadas**.
 
 Lista de planilhas salvas: `~/.mariacacau/sheets.json`

@@ -62,12 +62,16 @@ Os metadados (nome, versão, copyright, empresa, ícone) são lidos automaticame
 ```toml
 # pyproject.toml
 [project]
-version = "4.0.0"
+version = "X.Y.Z"   # ex.: 5.0.1 → 5.0.2 (patch), 5.1.0 (minor) ou 6.0.0 (major)
 
 [tool.maria-cacau]
-year    = "2020"
+year    = "AAAA"    # ano corrente do release, não um valor fixo do exemplo
 company = "KINGS"
 ```
+
+> `version`, `year` e `company` acima são placeholders — **sempre usar o valor real e atual** no
+> momento do release: o ano corrente, e a versão seguinte à publicada (incrementando major, minor
+> ou patch conforme o tipo de mudança), nunca copiar os valores de exemplo deste documento.
 
 ## Dependência de build
 

@@ -1,27 +1,23 @@
-## CBL — Curiosity-Based Log
+> Este repo é parte de um projeto maior. Contexto do projeto como um todo (outros repos, CBL) fica
+> no `CLAUDE.md` da pasta que contém este repo — se estiver disponível localmente, ler primeiro.
 
-O arquivo `.ai/benchmark/CBL.md` deve ser populado com as perguntas do usuário e resumo das respostas ao longo das sessões. Porém apenas as perguntas de descoberta, estudos e afins. Se for instruções num geral não precisa ser documentado.
-O usuário pede isso para que documente no Notion dele em cima da metodologia CBL.
-Quando for popular, caso queira, mande as perguntas que vc pretende colocar la pra ele, assim ele aprova certinho.
-- Registrar todas as perguntas do usuário, sem filtro de tema
-- Formato: `**P: pergunta**` seguido de parágrafo com resumo da resposta
-- Agrupar por sessão com cabeçalho de data (`## Sessão — Mês/Ano`)
-- Popular ao longo da sessão ou ao finalizar a demanda
+## Padrões de projeto e demandas
 
-## Strings de UI
-
-Todas as strings de UI ficam em `maria_cacau/assets/strings.py`. Nunca hardcodar texto de interface nas views.
-Ao adicionar qualquer string visível ao usuário (labels, botões, menus, diálogos), adicionar primeiro em `strings.py` e referenciar a constante na view.
+Convenções de arquitetura/código que não são específicas deste repo, decisões de design system e o
+status de qualquer demanda (incluindo o Design System / V6) não ficam mais aqui — ficam no repo
+interno **`Maria-Cacau-Study`** (documentação viva do projeto). Se esse repo estiver disponível,
+`demandas/README.md` na raiz dele é o ponto de entrada; decisões fechadas de arquitetura ficam em
+`style-guide/`.
 
 ## Finalizar demanda
 
 Quando o usuário pedir "finalizar a demanda" (ou variações), executar sempre:
 1. Rodar `isort` no projeto todo (via `source .envrc && python3 -m isort`) -- SEMPRE
-2. Atualizar os arquivos em `.ai/` que forem afetados pelas mudanças da sessão
+2. Atualizar os arquivos em `.ai/` que forem afetados pelas mudanças da sessão (só o que é específico deste repo — setup, build, packaging; arquitetura/decisão de projeto vai em `Maria-Cacau-Study`)
 3. Rodar `graphify update .` para manter o grafo atual -- SEMPRE
 4. Entregar a descrição do PR em bloco ```md para copy/paste``` — comparar com `develop` (`main` se for a develop)
    Estilo: `## Overview` com 1–2 parágrafos focados na motivação/impacto (não técnico), depois `## Ajustes feitos` com bullets contextuais. Sem checklist, sem referências a arquivos nos bullets.```
-5. Verificar se há perguntas pertinentes para atualizar no CBL.
+5. Verificar se há perguntas pertinentes para atualizar no CBL (`Maria-Cacau-Study/CBL.md`) — regra completa no `CLAUDE.md` da pasta que contém este repo.
 
 Nunca trazer código de outras branches, nunca abrir PR automaticamente.
 
@@ -36,17 +32,6 @@ O `self-study.md` deve sempre deixar claro:
 - Os próximos passos concretos para retomar na próxima sessão
 
 Esse arquivo é o ponto de entrada para qualquer IA ou sessão futura continuar de onde parou, sem precisar reler tudo.
-
-## Dados Sensíveis em Arquivos de Resultado
-
-Arquivos JSON em `pocs/` ou `scripts/` podem conter dados reais da planilha (CPF, e-mail, telefone, cartão). Nunca commitar esses arquivos com dados reais.
-Antes de qualquer commit com JSONs de resultado:
-- Substituir CPFs por `"000.000.000-00"`
-- Substituir e-mails por `"exemplo@email.com"`
-- Substituir telefones por `"(00) 00000-0000"`
-- Substituir números de cartão por `"0000 0000 0000 0000"`
-
-Se os dados forem necessários localmente, adicionar o arquivo ao `.gitignore` em vez de sanitizar.
 
 ## graphify
 

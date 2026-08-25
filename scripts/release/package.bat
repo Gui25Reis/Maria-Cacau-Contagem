@@ -9,7 +9,7 @@ REM Ativa o venv para garantir que nuitka e demais pacotes estejam disponíveis
 if exist "venv\Scripts\activate.bat" (
     call venv\Scripts\activate.bat
 ) else (
-    echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro ^(a partir da raiz do projeto^).
+    echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro, a partir da raiz do projeto.
 )
 
 REM Garante que as dependências de build (nuitka) estão instaladas

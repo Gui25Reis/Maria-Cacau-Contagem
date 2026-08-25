@@ -66,7 +66,7 @@ if not errorlevel 1 (
 if "%BRANCH_EXISTS%"=="1" (
     echo Branch reaproveitada: assumindo que o bump de versao ja foi commitado nela.
 ) else (
-    echo Aplicando bump de versao (%BUMP%): %NEW_VERSION%
+    echo Aplicando bump de versao %BUMP%: %NEW_VERSION%
     python scripts\release\bump_version.py %BUMP%
     if errorlevel 1 exit /b 1
 

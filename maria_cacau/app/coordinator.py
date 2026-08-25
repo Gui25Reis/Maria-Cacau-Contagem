@@ -9,6 +9,7 @@ from maria_cacau.backend._server import BackendServer
 from maria_cacau.core.bus import bus
 from maria_cacau.core.network import LocalClient, configure
 from maria_cacau.core.observability import AppEvent, observability
+from maria_cacau.design_system.tokens import load_fonts
 from maria_cacau.features import AppInitUseCase
 
 from .window import MainWindow
@@ -31,6 +32,7 @@ class AppCoordinator:
         app.styleHints().setColorScheme(Qt.ColorScheme.Light)
         icon_path = __icon_win__ if app.platformName() == 'windows' else __icon_mac__
         app.setWindowIcon(QIcon(icon_path))
+        load_fonts()
 
     def _on_launch(self) -> None:
         self._executor.submit(self._initialize)

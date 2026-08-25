@@ -1,8 +1,8 @@
 #!/bin/zsh
 # Gera o .app para macOS usando Nuitka.
-# Use: ./scripts/package.sh  (sempre da raiz do projeto ou de qualquer lugar)
+# Use: ./scripts/release/package.sh  (sempre da raiz do projeto ou de qualquer lugar)
 
-cd "$(dirname "$0")/.." || exit 1
+cd "$(dirname "$0")/../.." || exit 1
 
 ENTRY="maria_cacau"
 OUTPUT="dist"

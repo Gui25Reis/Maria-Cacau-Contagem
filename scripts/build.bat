@@ -38,3 +38,8 @@ if not errorlevel 1 (
 echo.
 echo Setup concluido. Para ativar o venv manualmente:
 echo     %VENV_NAME%\Scripts\activate.bat
+
+REM O 'where direnv' la em cima pode ter deixado o errorlevel em 1 mesmo em
+REM caso de sucesso (echo nao reseta errorlevel). Fixa o codigo de saida aqui
+REM para nao propagar esse falso-negativo pra quem chamar este script.
+exit /b 0

@@ -1,16 +1,17 @@
 @echo off
 chcp 65001 > nul
 REM Gera o .exe para Windows usando Nuitka.
-REM Use: scripts\package.bat  (sempre da raiz do projeto)
+REM Use: scripts\release\package.bat  (sempre da raiz do projeto)
 
-cd /d "%~dp0\.."
+cd /d "%~dp0\..\.."
 
 REM Ativa o venv para garantir que nuitka e demais pacotes estejam disponíveis
-if exist "venv\Scripts\activate.bat" (
-    call venv\Scripts\activate.bat
-) else (
-    echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro.
-)
+if not exist "venv\Scripts\activate.bat" goto no_venv
+call venv\Scripts\activate.bat
+goto after_venv
+:no_venv
+echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro, a partir da raiz do projeto.
+:after_venv
 
 REM Garante que as dependências de build (nuitka) estão instaladas
 python -m pip install -e ".[build]" --quiet
@@ -46,6 +47,11 @@ python -m nuitka ^
     --output-filename="%APP_NAME%" ^
     --output-dir="%OUTPUT%" ^
     %ENTRY%
+if errorlevel 1 (
+    echo ERRO: nuitka falhou ao gerar o .exe.
+    exit /b 1
+)
 
 echo.
 echo Gerado em: %OUTPUT%\%APP_NAME%.exe
+exit /b 0

@@ -1,5 +1,7 @@
 """Mapeamento de uma linha do DataFrame para o model Order."""
 
+import re
+
 from pandas import Series
 
 from ....data_source import (PAYMENT_SLOTS, PRODUCT_SLOTS, PaymentCols,
@@ -71,7 +73,37 @@ class OrderMapper:
                 price=float(row.get(ProductCols.PRICE.slot(i), 0.0) or 0.0),
                 total=float(row.get(ProductCols.TOTAL.slot(i), 0.0) or 0.0),
             ))
+        note = str(row.get(SheetCols.PRODUCTS_NOTE, "")).strip()
+        if note and note != "-":
+            OrderMapper._merge_products_note(products, note)
         return products
+
+    @staticmethod
+    def _merge_products_note(products: list[ProductItem], note: str) -> None:
+        """Soma à lista os itens de "Outro Espec.", casando por nome sem diferenciar maiúsculas/minúsculas."""
+
+        # "<quantidade> <nome do produto>" — item fora desse formato (célula
+        # ainda não padronizada) é ignorado.
+        item_re = re.compile(r"^(\d+)\s+(.+)$")
+
+        by_lower = {p.name.lower(): p for p in products}
+        for item in re.split(r"\s*//\s*", note):
+            item = item.strip()
+            if not item:
+                continue
+
+            match = item_re.match(item)
+            if not match:
+                continue
+            
+            quantity, name = int(match.group(1)), match.group(2).strip()
+            existing = by_lower.get(name.lower())
+            if existing:
+                existing.quantity += quantity
+            else:
+                new_product = ProductItem(name=name, quantity=quantity, price=0.0, total=0.0)
+                products.append(new_product)
+                by_lower[name.lower()] = new_product
 
     @staticmethod
     def _payments(row: Series) -> list[PaymentItem]:

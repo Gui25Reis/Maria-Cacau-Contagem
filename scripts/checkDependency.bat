@@ -10,7 +10,7 @@ REM seguindo o padrao do bloco "gh" abaixo (checar -> instalar -> checar de novo
 set DEP=%1
 
 if "%DEP%"=="" (
-    echo Uso: checkDependency.bat ^<nome^>
+    echo Uso: checkDependency.bat nome
     echo false
     exit /b 1
 )

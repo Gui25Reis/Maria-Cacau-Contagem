@@ -9,7 +9,7 @@ cd /d "%~dp0\..\.."
 
 set BUMP=%1
 if "%BUMP%"=="" (
-    echo Uso: scripts\release\prepareNewRelease.bat major^|minor^|patch
+    echo Uso: scripts\release\prepareNewRelease.bat major, minor ou patch
     exit /b 1
 )
 

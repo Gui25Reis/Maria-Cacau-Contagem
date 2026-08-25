@@ -6,11 +6,12 @@ REM Use: scripts\release\package.bat  (sempre da raiz do projeto)
 cd /d "%~dp0\..\.."
 
 REM Ativa o venv para garantir que nuitka e demais pacotes estejam disponíveis
-if exist "venv\Scripts\activate.bat" (
-    call venv\Scripts\activate.bat
-) else (
-    echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro, a partir da raiz do projeto.
-)
+if not exist "venv\Scripts\activate.bat" goto no_venv
+call venv\Scripts\activate.bat
+goto after_venv
+:no_venv
+echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro, a partir da raiz do projeto.
+:after_venv
 
 REM Garante que as dependências de build (nuitka) estão instaladas
 python -m pip install -e ".[build]" --quiet

@@ -16,7 +16,7 @@ Processo para compilar o projeto em um binário standalone usando [Nuitka](https
 ./scripts/build.sh
 
 # 2. Gerar o .app
-./scripts/package.sh
+./scripts/release/package.sh
 ```
 
 ### Windows
@@ -26,7 +26,7 @@ REM 1. Setup do projeto (cria venv + instala dependências)
 scripts\build.bat
 
 REM 2. Gerar o .exe
-scripts\package.bat
+scripts\release\package.bat
 ```
 
 O `package.bat` instala automaticamente as dependências de build (`nuitka`) via `pip install -e ".[build]"` antes de compilar.

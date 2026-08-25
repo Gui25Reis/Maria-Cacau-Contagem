@@ -32,7 +32,7 @@ pip install -e ".[build]"
 
 ## Gerar executável
 ```bash
-./scripts/package.sh
+./scripts/release/package.sh
 ```
 - macOS → `dist/MC Consultas.app`
 - Windows → `dist/MC Consultas.exe`

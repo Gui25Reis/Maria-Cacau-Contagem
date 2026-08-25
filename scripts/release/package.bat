@@ -1,15 +1,15 @@
 @echo off
 chcp 65001 > nul
 REM Gera o .exe para Windows usando Nuitka.
-REM Use: scripts\package.bat  (sempre da raiz do projeto)
+REM Use: scripts\release\package.bat  (sempre da raiz do projeto)
 
-cd /d "%~dp0\.."
+cd /d "%~dp0\..\.."
 
 REM Ativa o venv para garantir que nuitka e demais pacotes estejam disponíveis
 if exist "venv\Scripts\activate.bat" (
     call venv\Scripts\activate.bat
 ) else (
-    echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro.
+    echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro ^(a partir da raiz do projeto^).
 )
 
 REM Garante que as dependências de build (nuitka) estão instaladas

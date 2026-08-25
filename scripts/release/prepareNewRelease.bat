@@ -22,8 +22,11 @@ if errorlevel 1 exit /b 1
 call scripts\build.bat
 if errorlevel 1 exit /b 1
 
-call scripts\release\package.bat
-if errorlevel 1 exit /b 1
+REM TEMP: package.bat comentado para validar o resto do fluxo reaproveitando
+REM o .exe ja gerado em dist\ (build da 5.1.0). Descomentar antes de usar pra
+REM valer - sem isso, o .exe enviado nao corresponde a nova versao.
+REM call scripts\release\package.bat
+REM if errorlevel 1 exit /b 1
 
 call scripts\release\uploadRelease.bat
 if errorlevel 1 exit /b 1

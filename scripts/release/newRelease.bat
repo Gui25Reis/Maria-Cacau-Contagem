@@ -96,8 +96,30 @@ if errorlevel 1 exit /b 1
 
 gh pr view "%BRANCH%" >nul 2>&1
 if errorlevel 1 goto create_pr
-echo PR para %BRANCH% ja existe, pulando criacao.
+
+for /f "delims=" %%i in ('gh pr view "%BRANCH%" --json state --jq .state') do set PR_STATE=%%i
+
+if "%PR_STATE%"=="OPEN" goto pr_open
+if "%PR_STATE%"=="CLOSED" goto pr_reopen
+if "%PR_STATE%"=="MERGED" goto pr_merged
+
+echo AVISO: PR para %BRANCH% em estado desconhecido: %PR_STATE%. Pulando.
 goto after_pr
+
+:pr_open
+echo PR para %BRANCH% ja existe e esta aberto, pulando criacao.
+goto after_pr
+
+:pr_reopen
+echo PR para %BRANCH% existe mas esta fechado. Reabrindo...
+gh pr reopen "%BRANCH%"
+if errorlevel 1 exit /b 1
+goto after_pr
+
+:pr_merged
+echo AVISO: PR para %BRANCH% ja foi mergeado anteriormente. Nada a fazer aqui.
+goto after_pr
+
 :create_pr
 echo Criando PR de %BRANCH% para main...
 gh pr create --base main --head "%BRANCH%" --title "Release %NEW_VERSION%" --body ""

@@ -49,3 +49,4 @@ exit /b 1
 :done
 echo.
 echo Asset enviado para a release v%VERSION%.
+exit /b 0

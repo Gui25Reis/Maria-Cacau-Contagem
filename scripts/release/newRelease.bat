@@ -117,3 +117,4 @@ if errorlevel 1 exit /b 1
 echo.
 echo Release %NEW_VERSION% preparada. Branch: %BRANCH%
 echo Falta preencher o texto do PR e da release antes de mergear/publicar.
+exit /b 0

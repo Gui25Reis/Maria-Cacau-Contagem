@@ -47,6 +47,11 @@ python -m nuitka ^
     --output-filename="%APP_NAME%" ^
     --output-dir="%OUTPUT%" ^
     %ENTRY%
+if errorlevel 1 (
+    echo ERRO: nuitka falhou ao gerar o .exe.
+    exit /b 1
+)
 
 echo.
 echo Gerado em: %OUTPUT%\%APP_NAME%.exe
+exit /b 0

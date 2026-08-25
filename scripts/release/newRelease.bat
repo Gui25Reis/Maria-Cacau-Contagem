@@ -1,12 +1,11 @@
 @echo off
 REM Uso: scripts\release\newRelease.bat major|minor|patch
 REM
-REM Cria a branch de release a partir da branch atual (a que estiver com
-REM checkout feito no momento, normalmente a develop - atualizada antes),
-REM faz o bump de versao no pyproject.toml (commit so na branch de release,
-REM nunca na branch base), abre o PR release/x.y.z para main (corpo vazio) e
-REM cria a release em draft (vazia). Merge do PR e publicacao da release
-REM ficam manuais.
+REM Cria a branch de release a partir da develop (atualizada antes), faz o
+REM bump de versao no pyproject.toml (commit so na branch de release, nunca
+REM na develop), abre o PR release/x.y.z para main (corpo vazio) e cria a
+REM release em draft (vazia). Merge do PR e publicacao da release ficam
+REM manuais.
 REM
 REM Estrutura em goto/labels de proposito: blocos if/else com parenteses
 REM aninhados no cmd.exe quebram de forma imprevisivel quando o texto de um
@@ -30,10 +29,13 @@ goto after_venv
 echo AVISO: venv nao encontrado. Execute scripts\build.bat primeiro.
 :after_venv
 
-for /f "delims=" %%i in ('git rev-parse --abbrev-ref HEAD') do set BASE_BRANCH=%%i
+set BASE_BRANCH=develop
 
-echo Atualizando a branch atual: %BASE_BRANCH%
+echo Atualizando a branch %BASE_BRANCH%...
 git fetch origin
+if errorlevel 1 exit /b 1
+
+git checkout "%BASE_BRANCH%"
 if errorlevel 1 exit /b 1
 
 git pull origin "%BASE_BRANCH%"

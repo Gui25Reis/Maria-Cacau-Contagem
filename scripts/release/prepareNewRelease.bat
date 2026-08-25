@@ -35,13 +35,10 @@ if errorlevel 1 goto step_failed_build
 
 echo.
 echo ==========================================================
-echo [4/5] Gerando o .exe - PULADO (package.bat comentado para teste)
+echo [4/5] Gerando o .exe (scripts\release\package.bat)
 echo ==========================================================
-REM TEMP: package.bat comentado para validar o resto do fluxo reaproveitando
-REM o .exe ja gerado em dist\, build da 5.1.0. Descomentar antes de usar pra
-REM valer - sem isso, o .exe enviado nao corresponde a nova versao.
-REM call scripts\release\package.bat
-REM if errorlevel 1 goto step_failed_package
+call scripts\release\package.bat
+if errorlevel 1 goto step_failed_package
 
 echo.
 echo ==========================================================

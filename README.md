@@ -58,15 +58,17 @@ python -m maria_cacau
 
 ## Gerar executável
 
+O script [`prepareNewRelease.bat`](./scripts/release/prepareNewRelease.bat) cuida de todo o processo de uma nova release:
+- Executar passando o tipo da nova versão (`major`, `minor` ou `patch`)
+- Uma vez finalizado, ajustar a descrição do PR de release gerado
+- Após o merge, ajustar a descrição da release e publicá-la
+
 > [!NOTE]
-> É necessário rodar o `build` antes para instalar as dependências e ter o venv configurado.
-> O executável gerado acaba ficando na pasta dist/.
-> Lembra de ajustar a versão em [pyproject.toml](pyproject.toml)
+> Gerar o `.exe` só funciona numa máquina Windows.
 
 | OS | Comando |
 |---|---|
-| ![macOS](https://img.shields.io/badge/macOS-000000?logo=apple&logoColor=white) | `./scripts/build.sh && ./scripts/release/package.sh` |
-| ![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white) | `scripts\build.bat && scripts\release\package.bat` |
+| ![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white) | `scripts\release\prepareNewRelease.bat major\|minor\|patch` |
 
 
 </br>

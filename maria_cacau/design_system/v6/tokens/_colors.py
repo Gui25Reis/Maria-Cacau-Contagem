@@ -3,7 +3,6 @@ from enum import StrEnum
 
 from PyQt6.QtGui import QColor
 
-
 # ── Nível 1 — Paleta (privado) ───────────────────────────────────────────────
 
 class _Palette(StrEnum):

@@ -2,7 +2,7 @@ from enum import Enum
 
 from PyQt6.QtGui import QColor
 
-from maria_cacau.design_system.tokens import COLORS
+from maria_cacau.design_system.v6.tokens import COLORS
 
 
 class DSContainerStyle(Enum):

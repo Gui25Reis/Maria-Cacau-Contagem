@@ -2,7 +2,7 @@ from PyQt6.QtCore import QRectF, Qt
 from PyQt6.QtGui import QPainterPath, QRegion, QResizeEvent
 from PyQt6.QtWidgets import QFrame
 
-from maria_cacau.design_system.tokens import COLORS, LAYOUT, Shadows
+from maria_cacau.design_system.v6.tokens import COLORS, LAYOUT, Shadows
 
 from .style import DSContainerStyle
 

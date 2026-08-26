@@ -2,7 +2,8 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QFrame, QHBoxLayout, QLabel
 
-from maria_cacau.design_system.tokens import LAYOUT, FontFamily, TypographyToken
+from maria_cacau.design_system.v6.tokens import (LAYOUT, FontFamily,
+                                                 TypographyToken)
 
 from .style import DSBadgeStyle
 

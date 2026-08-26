@@ -9,7 +9,7 @@ from maria_cacau.backend._server import BackendServer
 from maria_cacau.core.bus import bus
 from maria_cacau.core.network import LocalClient, configure
 from maria_cacau.core.observability import AppEvent, observability
-from maria_cacau.design_system.tokens import load_fonts
+from maria_cacau.design_system.v6.tokens import load_fonts
 from maria_cacau.features import AppInitUseCase
 
 from .window import MainWindow

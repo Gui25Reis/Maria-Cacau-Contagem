@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from PyQt6.QtGui import QColor
 
-from maria_cacau.design_system.tokens import DSStatusType
+from maria_cacau.design_system.v6.tokens import DSStatusType
 
 
 @dataclass(frozen=True)

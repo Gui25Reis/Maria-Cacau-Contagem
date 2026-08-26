@@ -24,4 +24,4 @@ class DSButtonType(Enum):
             case DSButtonType.ICON:
                 return self.height
             case _:
-                return None
+                return 120   # mínimo recomendado pra botões de comando (Fluent/WinUI3)

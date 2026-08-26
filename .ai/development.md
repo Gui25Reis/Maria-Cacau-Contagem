@@ -52,6 +52,11 @@ O `__init__.py`, o executável gerado e os metadados do pacote leem daqui automa
 ## Assets
 Imagens ficam em `maria_cacau/assets/images/`. Caminhos são relativos à raiz do projeto (de onde `python -m maria_cacau` é executado).
 
+Fontes customizadas do design system ficam em `maria_cacau/assets/fonts/` (Segoe UI Variable,
+Cascadia Code, mc-icons). Os arquivos `.ttf` ainda não foram adicionados ao repo — o carregamento
+(`design_system/v6/tokens/load_fonts()`) já está preparado, mas roda sem efeito até os arquivos
+existirem (`QFontDatabase.addApplicationFont` falha silenciosamente se o path não existir).
+
 ## Google Sheets — configuração inicial
 Na primeira vez, o app precisa do `.json` da Service Account para autenticar.
 

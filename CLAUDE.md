@@ -14,10 +14,12 @@ interno **`Maria-Cacau-Study`** (documentação viva do projeto). Se esse repo e
 Quando o usuário pedir "finalizar a demanda" (ou variações), executar sempre:
 1. Rodar `isort` no projeto todo (via `source .envrc && python3 -m isort`) -- SEMPRE
 2. Atualizar os arquivos em `.ai/` que forem afetados pelas mudanças da sessão (só o que é específico deste repo — setup, build, packaging; arquitetura/decisão de projeto vai em `Maria-Cacau-Study`)
-3. Rodar `graphify update .` para manter o grafo atual -- SEMPRE
-4. Entregar a descrição do PR em bloco ```md para copy/paste``` — comparar com `develop` (`main` se for a develop)
+3. Entregar a descrição do PR em bloco ```md para copy/paste``` — comparar com `develop` (`main` se for a develop)
    Estilo: `## Overview` com 1–2 parágrafos focados na motivação/impacto (não técnico), depois `## Ajustes feitos` com bullets contextuais. Sem checklist, sem referências a arquivos nos bullets.```
-5. Verificar se há perguntas pertinentes para atualizar no CBL (`Maria-Cacau-Study/CBL.md`) — regra completa no `CLAUDE.md` da pasta que contém este repo.
+4. Verificar se há perguntas pertinentes para atualizar no CBL (`Maria-Cacau-Study/CBL.md`) — regra completa no `CLAUDE.md` da pasta que contém este repo.
+
+Atualização do grafo (`graphify update .`) não é mais manual — o workflow `code-standardize` roda
+automaticamente a cada push na `develop` (ver `Maria-Cacau-Study/demandas/ci-cd/`).
 
 Nunca trazer código de outras branches, nunca abrir PR automaticamente.
 
@@ -41,4 +43,4 @@ Rules:
 - Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure
 - If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
 - For cross-module "how does X relate to Y" questions, prefer `graphify query "<question>"`, `graphify path "<A>" "<B>"`, or `graphify explain "<concept>"` over grep — these traverse the graph's EXTRACTED + INFERRED edges instead of scanning files
-- Don't run `graphify update .` after every file change during a session — it's noisy mid-session. Only run it as part of "finalizar demanda" (step 3 above), or if the user explicitly asks for it sooner.
+- Don't run `graphify update .` manually — o workflow `code-standardize` já roda isso automaticamente a cada push na `develop`. Só rodar manual se o usuário pedir explicitamente antes disso.

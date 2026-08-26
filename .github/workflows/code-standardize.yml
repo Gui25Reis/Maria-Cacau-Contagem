@@ -1,0 +1,16 @@
+name: code-standardize
+
+on:
+  push:
+    branches: [develop]
+    paths: ['maria_cacau/**/*.py']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  standardize:
+    uses: Maria-Cacau/Maria-Cacau-Actions/.github/workflows/code-standardize.yml@v1
+    with:
+      path: '.'

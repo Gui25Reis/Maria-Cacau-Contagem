@@ -1,0 +1,24 @@
+name: app-distribution
+
+on:
+  push:
+    branches: [main]
+    paths: ['pyproject.toml']
+  workflow_dispatch:
+    inputs:
+      clear-cache:
+        description: "Limpar o cache do Nuitka antes de rodar (rebuild limpo)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: read
+  actions: write
+
+jobs:
+  app-distribution:
+    uses: Maria-Cacau/Maria-Cacau-Actions/.github/workflows/app-distribution.yml@v2
+    with:
+      clear-cache: ${{ inputs.clear-cache || false }}

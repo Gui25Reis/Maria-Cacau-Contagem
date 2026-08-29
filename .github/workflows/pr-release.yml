@@ -1,0 +1,24 @@
+name: pr-release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Tipo de bump de versão
+        required: true
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  pr-release:
+    uses: Maria-Cacau/Maria-Cacau-Actions/.github/workflows/pr-release.yml@v2
+    with:
+      branch: develop
+      bump: ${{ inputs.bump }}

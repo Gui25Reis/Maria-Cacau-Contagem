@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Setup do projeto: instala direnv, cria o venv e instala as dependências.
-# Use: ./scripts/build.sh  (macOS/Linux/Git Bash)
+# Use: ./scripts/build.sh [extra]  (macOS/Linux/Git Bash)
+# extra: grupo de dependências opcionais do pyproject.toml a instalar (default: dev)
 # Windows nativo: use scripts\build.bat
 
 VENV_NAME="venv"
+EXTRA="${1:-dev}"
 PYTHON=$(command -v python3 2>/dev/null || command -v python 2>/dev/null)
 
 if [[ -z "$PYTHON" ]]; then
@@ -50,7 +52,7 @@ fi
 
 # Instala o pacote e suas dependências
 python -m pip install --upgrade pip
-pip install -e ".[dev]"
+pip install -e ".[$EXTRA]"
 
 # Registra a pasta de hooks do projeto
 git config core.hooksPath .githooks

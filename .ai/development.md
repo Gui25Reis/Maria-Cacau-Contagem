@@ -27,27 +27,20 @@ python -m maria_cacau
 
 ## Instalar dependências de build
 ```bash
-pip install -e ".[build]"
+scripts/build.sh build   # ou scripts\build.bat build no Windows
 ```
 
 ## Gerar executável
-```bash
-./scripts/release/package.sh
-```
-- macOS → `dist/MC Consultas.app`
-- Windows → `dist/MC Consultas.exe`
+Automatizado via CI (workflow `app-distribution`) — ver [`packaging.md`](./packaging.md). Não é
+mais gerado localmente.
 
 ## Adicionar dependência
 1. Adicionar em `pyproject.toml` no grupo correto
 2. Rodar `pip install -e .` (ou `pip install -e ".[build]"` para deps de build)
 
 ## Atualizar versão
-Editar apenas `pyproject.toml`:
-```toml
-[project]
-version = "6.0.0"
-```
-O `__init__.py`, o executável gerado e os metadados do pacote leem daqui automaticamente.
+Feito automaticamente pelo workflow `pr-release` ao escolher o tipo de bump (`major`/`minor`/`patch`)
+— não editar `pyproject.toml` manualmente pra isso.
 
 ## Assets
 Imagens ficam em `maria_cacau/assets/images/`. Caminhos são relativos à raiz do projeto (de onde `python -m maria_cacau` é executado).

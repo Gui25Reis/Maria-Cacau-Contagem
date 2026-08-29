@@ -58,17 +58,14 @@ python -m maria_cacau
 
 ## Gerar executável
 
-O script [`prepareNewRelease.bat`](./scripts/release/prepareNewRelease.bat) cuida de todo o processo de uma nova release:
-- Executar passando o tipo da nova versão (`major`, `minor` ou `patch`)
-- Uma vez finalizado, ajustar a descrição do PR de release gerado
-- Após o merge, ajustar a descrição da release e publicá-la
+A geração do `.exe` e a publicação da release são automatizadas via GitHub Actions
+(ver [`Maria-Cacau-Actions`](https://github.com/Maria-Cacau/Maria-Cacau-Actions)) — não é mais
+necessário rodar nada localmente numa máquina Windows.
 
-> [!NOTE]
-> Gerar o `.exe` só funciona numa máquina Windows.
-
-| OS | Comando |
-|---|---|
-| ![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white) | `scripts\release\prepareNewRelease.bat major\|minor\|patch` |
+- Rodar o workflow `pr-release` (aba Actions) escolhendo o tipo de bump (`major`, `minor` ou
+  `patch`): abre o PR de release com a versão já bumpada
+- Ao mergear esse PR na `main`, o workflow `app-distribution` builda o `.exe` via Nuitka e publica
+  a release automaticamente com o asset anexado
 
 
 </br>

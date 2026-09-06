@@ -54,3 +54,17 @@ Na primeira vez, o app precisa do `.json` da Service Account para autenticar.
 As credenciais são salvas via `SecurityStorage` (`~/.mariacacau/`, arquivo protegido por permissões — não é mais `keyring`/keychain do SO). Nas próximas execuções, o app autentica automaticamente e as planilhas já conectadas aparecem em **Arquivo → Planilhas conectadas**.
 
 Lista de planilhas salvas: `~/.mariacacau/sheets.json`
+
+### Escopo é somente leitura
+O client do Sheets é criado com escopo de leitura, em `backend/data_source/_google_sheets.py`:
+
+```python
+_SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
+
+creds = Credentials.from_service_account_info(credentials, scopes=_SCOPES)
+```
+
+Dar permissão de escrita para a Service Account na planilha **não basta**: o escopo é pedido na
+autenticação, então o client nasce somente leitura de qualquer jeito. Toda feature que precise
+gravar na planilha esbarra nisso antes de qualquer outra coisa — o escopo teria que virar
+`https://www.googleapis.com/auth/spreadsheets`.
